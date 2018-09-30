@@ -1,0 +1,54 @@
+#==================================================================================================================
+#
+# Project:	Nonlinear MPC for Hexacopter trajectory tracking.
+#
+# function:	NMPC Position controller parameters.
+#
+# Author:	Mina Kamel	mina.kamel@ethz.ch
+#
+# Generated:	20-Dec-2015 02:37:59
+#
+#==================================================================================================================
+
+## Controller Parameters:
+mass: 0.874
+roll_time_constant: 0.2
+pitch_time_constant: 0.23
+roll_gain: 0.85
+pitch_gain: 0.86
+linear_drag_coefficients: [ 0.010000 , 0.010000, 0.0000]
+reference_frame: world
+
+# dynamic config default values:
+q_x : 30 #down 30
+q_y : 30
+q_z : 50 # down 50 to 20
+
+q_vx : 30 #down 30
+q_vy : 30
+q_vz : 50
+
+q_roll : 10
+q_pitch: 10
+
+r_roll  : 100 #up 100
+r_pitch : 100
+r_thrust : 1 # up 1 to 2.. 3
+
+roll_max: deg(10.0)
+pitch_max: deg(10.0)
+thrust_min: 5
+thrust_max: 20
+
+K_yaw: 1.8
+
+Ki_xy: 0.2
+Ki_z: 0.3
+position_error_integration_limit: 2
+antiwindup_ball: 0.4
+
+enable_offset_free : true
+enable_integrator : true
+
+sampling_time: 0.01    #IMPORTANT: set this equal to the rate of odometry msg
+prediction_sampling_time: 0.1

@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!--
+  Copyright 2015 Fadri Furrer, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Michael Burri, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Mina Kamel, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Janosch Nikolic, ASL, ETH Zurich, Switzerland
+  Copyright 2015 Markus Achtelik, ASL, ETH Zurich, Switzerland
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<robot name="$(arg marker_name)" xmlns:xacro="http://ros.org/wiki/xacro">
+<xacro:include filename="$(find rotors_description)/urdf/component_snippets.xacro" />
+<xacro:include filename="$(find active_marker_sensor_fusion)/resources/active_marker_snippets.xacro" />
+
+<link name="$(arg marker_name)/base_link">
+     <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="1000.0" />
+      <inertia  ixx="10000.0" ixy="0.0"  ixz="0.0"  iyy="10000.0"  iyz="0.0"  izz="10000.0" />
+    </inertial>
+    <visual>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
+        <geometry>            
+	 	    <box size="0.55 0.55 0.35"/>
+       </geometry>
+    </visual>
+    <collision>
+      <origin rpy="0 0 0" xyz="0 0 0.01"/>
+      <geometry>
+	 	<box size="0.55 0.55 0.35"/>
+      </geometry>
+    </collision>
+</link>
+ <gazebo reference="$(arg marker_name)/base_link">
+    <material>Gazebo/Black</material>
+  </gazebo>
+
+<xacro:active_marker_ethbox
+    namespace="$(arg marker_name)"
+    parent_link="$(arg marker_name)/base_link" enable_ground_truth="true">
+    <origin xyz="-0.22 0.24 0.185" rpy="0 0 0" />
+  </xacro:active_marker_ethbox>
+
+</robot>

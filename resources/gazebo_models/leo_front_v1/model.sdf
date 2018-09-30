@@ -1,0 +1,17 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="tan-side-v1">
+    <static>true</static>
+        <link name="main_link">
+          <visual name="visual">
+            <cast_shadows>false</cast_shadows>
+            <pose>0 0 0 0 0 0</pose>
+            <geometry>          
+              <mesh>            
+                <uri>model://leo_front_v1/meshes/leo_side_v1.dae</uri>
+              </mesh>
+            </geometry>        
+          </visual>      
+        </link>
+  </model>
+</sdf>

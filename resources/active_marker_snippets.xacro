@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+
+  <!-- just include this command to use <xacro:include filename="$(find uav_state_estimation_simulation)/resources/active_marker_snippets.gazebo" />-->
+
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:property name="pi" value="3.14159265359" />
+  <xacro:property name="sphere_radius" value="0.01" />
+  <xacro:property name="pingpong_radius" value="0.02" />
+  <xacro:property name="sphere_radius_5m" value="0.15" />
+  <xacro:macro name="active_marker_5m_v1" params="namespace parent_link *origin">
+    
+    <gazebo reference="${namespace}/active_marker_link">
+        <material>Gazebo/WhiteGlow</material>
+    </gazebo>
+
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.001" />
+      <inertia  ixx="0.001" ixy="0.0"  ixz="0.0"  iyy="0.001"  iyz="0.0"  izz="0.001" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+    </collision>
+
+    <!-- Vi Sensor Link -->
+    <link name="${namespace}/active_marker_link">      
+       <visual name="visual0">
+        
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>
+        
+      </visual>
+
+      <visual name="visual1">
+        <origin xyz="1.246 0 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>          
+      </visual>
+
+        <visual name="visual2">
+        <origin xyz="-0.13 0 0.38" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>
+      </visual>
+
+      <visual name="visual3">
+        <origin xyz="0.57 0 0.38" rpy="0 0 0"/>
+        <geometry>          
+                    <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>        
+      </visual>
+
+      <visual name="visual4">        
+        <origin xyz="0.09 -0.1 0.18" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>        
+      </visual>
+    </link>
+    <joint name="${namespace}_active_marker_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent_link}" />
+      <child link="${namespace}/active_marker_link" />
+    </joint>
+  </xacro:macro>
+
+<xacro:macro name="active_marker_5m_v2" params="namespace parent_link *origin">
+    
+     <link name="my_box">
+        
+      <visual name="visual0">
+        
+        <origin xyz="-2.1 -2.1 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius_5m}">
+          </sphere>
+        </geometry>
+        
+      </visual>
+
+      <visual name="visual1">
+        <origin xyz="2.1 -2.1 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius_5m}">
+          </sphere>
+        </geometry>          
+      </visual>
+
+        <visual name="visual2">
+        <origin xyz="-2.1 2.1 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius_5m}">
+          </sphere>
+        </geometry>
+      </visual>
+
+      <visual name="visual3">
+        <origin xyz="2.1 2.1 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius_5m}">
+          </sphere>
+        </geometry>        
+      </visual>
+
+      <visual name="visual4">        
+        <origin xyz="-1 -1 1.5" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius_5m}">
+          </sphere>
+        </geometry>        
+      </visual>    
+  </link>
+  <gazebo reference="my_box">
+    <material>Gazebo/WhiteGlow</material>    
+  </gazebo>
+    <joint name="${namespace}_active_marker_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent_link}" />
+      <child link="my_box" />
+    </joint>
+   
+  </xacro:macro>
+
+<xacro:macro name="active_marker_60cm_v1" params="namespace parent_link *origin">
+    
+     <link name="my_box">
+        
+      <visual name="visual0">
+        
+        <origin xyz="-0.25 -0.25 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>
+        
+      </visual>
+
+      <visual name="visual1">
+        <origin xyz="0.25 -0.25 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>          
+      </visual>
+
+        <visual name="visual2">
+        <origin xyz="-0.2 0.25 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>
+      </visual>
+
+      <visual name="visual3">
+        <origin xyz="0.2 0.2 0.1" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>        
+      </visual>
+      
+  </link>
+  <gazebo reference="my_box">
+    <material>Gazebo/WhiteGlow</material>    
+  </gazebo>
+    <joint name="${namespace}_active_marker_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent_link}" />
+      <child link="my_box" />
+    </joint>
+    
+  </xacro:macro>
+
+<xacro:macro name="active_marker_60cm_v2_frontal" params="namespace parent_link *origin">
+    
+     <link name="my_box">
+        
+      <visual name="visual0">
+        
+        <origin xyz="0 -0.25 -0.25" rpy="0 0 0"/>
+        <geometry>
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>
+        
+      </visual>
+
+      <visual name="visual1">
+        <origin xyz="0 -0.25 0.25" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>          
+      </visual>
+
+        <visual name="visual2">
+        <origin xyz="0 0.25 -0.2" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>
+      </visual>
+
+      <visual name="visual3">
+        <origin xyz="0.1 0.2 0.2" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${sphere_radius}">
+          </sphere>
+        </geometry>
+      </visual>      
+  </link>
+  <gazebo reference="my_box">
+    <material>Gazebo/WhiteGlow</material>    
+  </gazebo>
+    <joint name="${namespace}_active_marker_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent_link}" />
+      <child link="my_box" />
+    </joint>
+   
+  </xacro:macro>
+
+<xacro:macro name="active_marker_box" params="namespace parent_link *origin">
+    
+     <link name="my_box">
+    <inertial>
+      <origin xyz="2 0 0" />
+      <mass value="1.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="100.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+    <visual>
+      <origin xyz="2 0 1"/>
+      <geometry>
+        <box size="1 1 2" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="2 0 1"/>
+      <geometry>
+        <box size="1 1 2" />
+      </geometry>
+    </collision>
+  </link>
+  <gazebo reference="my_box">
+    <material>Gazebo/Blue</material>
+    <static>true</static>
+  </gazebo>
+    <joint name="${namespace}_active_marker_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent_link}" />
+      <child link="my_box" />
+    </joint>
+  </xacro:macro>
+ 
+ 
+  <xacro:macro name="s900_v1_active_marker" params="namespace parent_link *origin">
+
+    <gazebo reference="${namespace}/active_marker_link">
+        <material>Gazebo/RedGlow</material>
+    </gazebo>
+
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="0.001" />
+      <inertia  ixx="0.001" ixy="0.0"  ixz="0.0"  iyy="0.001"  iyz="0.0"  izz="0.001" />
+    </inertial>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="1 1 1" />
+      </geometry>
+    </collision>
+
+
+    <!-- Vi Sensor Link -->
+    <link name="${namespace}/active_marker_link">      
+       <visual name="visual0">
+        
+        <origin xyz="0 0 0.38" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${pingpong_radius}">
+          </sphere>
+        </geometry>
+        
+      </visual>
+
+      <visual name="visual1">
+        <origin xyz="0.0 0.80 0.38" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${pingpong_radius}">
+          </sphere>
+        </geometry>          
+      </visual>
+
+        <visual name="visual2">
+        <origin xyz="0.1 0.35 0.18" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${pingpong_radius}">
+          </sphere>
+        </geometry>
+      </visual>
+
+      <visual name="visual3">
+        <origin xyz="0 0.14 0" rpy="0 0 0"/>
+        <geometry>          
+                    <sphere radius="${pingpong_radius}">
+          </sphere>
+        </geometry>        
+      </visual>
+
+      <visual name="visual4">        
+        <origin xyz="0 0.64 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="${pingpong_radius}">
+          </sphere>
+        </geometry>        
+      </visual>
+    </link>
+    <joint name="${namespace}_active_marker_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent_link}" />
+      <child link="${namespace}/active_marker_link" />
+    </joint>
+  </xacro:macro>
+
+<xacro:macro name="active_marker_ethbox" params="namespace parent_link *origin">
+    
+     <link name="${namespace}/eth_box_link">
+        
+      <visual name="visual0">
+        
+        <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="0.02">
+          </sphere>
+        </geometry>
+        
+      </visual>
+
+      <visual name="visual1">
+        <origin xyz="0.465 0.00 0.00" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="0.02">
+          </sphere>
+        </geometry>          
+      </visual>
+
+        <visual name="visual2">
+        <origin xyz="0.105 -0.477 0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="0.02">
+          </sphere>
+        </geometry>
+      </visual>
+
+      <visual name="visual3">
+        <origin xyz="0.37 -0.477 0.0" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="0.02">
+          </sphere>
+        </geometry>        
+      </visual>
+
+       <visual name="visual4">
+        <origin xyz="0.137 -0.2885 0.2271" rpy="0 0 0"/>
+        <geometry>          
+          <sphere radius="0.02">
+          </sphere>
+        </geometry>        
+      </visual>
+     
+  </link>
+  <gazebo reference="${namespace}/eth_box_link">
+    <material>Gazebo/WhiteGlow</material>    
+  </gazebo>
+    <joint name="${namespace}/active_marker_joint" type="fixed">
+      <xacro:insert_block name="origin" />
+      <parent link="${parent_link}" />
+      <child link="${namespace}/eth_box_link" />
+    </joint>    
+  </xacro:macro>
+
+
+</robot>

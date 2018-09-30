@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-15"?>
+<launch>
+	<arg default="hummingbird" name="mav_name"/>
+	<arg default="$(arg mav_name)" name="namespace"/>
+	<group ns="$(arg namespace)">
+		<node clear_params="true" name="vi_rpe" output="screen" pkg="vi_rpe" type="vi_rpe">
+			<remap from="slave_rel_pose_in" to="mope/vision_pose_covariance"/>
+			<remap from="master_odom_in" to="/neo11/odometry_sensor1/odometry"/>
+			<remap from="slave_msf_odom" to="msf_core/odometry"/>
+			<remap from="~command/pose" to="command/pose"/>
+			<remap from="slave_msf_pose_after_update" to="msf_core/pose_after_update"/>
+			<param name="mode" value="1"/>
+		</node>
+	</group>
+</launch>
+<!-- <remap from="original topic name" to="new topic name" />-->

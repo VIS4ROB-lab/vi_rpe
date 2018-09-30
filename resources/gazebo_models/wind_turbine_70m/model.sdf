@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<sdf version="1.4">
+  <model name="wind_turbine_70">
+    <static>true</static>
+        <link name="hub_link">
+          <visual name="visual">
+            <cast_shadows>false</cast_shadows>
+            <pose>3.38 0 119 3.14159 0 0</pose>
+            <geometry>          
+              <mesh>            
+                <uri>model://wind_turbine_70m/meshes/wind_turbine_hub.dae</uri>
+              </mesh>
+            </geometry>        
+          </visual>
+
+      <visual name="visual_blade1">
+        <cast_shadows>false</cast_shadows>
+        <pose>4.71 0 119 3.14159 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://wind_turbine_70m/meshes/wind_turbine_blade.dae</uri>
+          </mesh>
+        </geometry>        
+      </visual>
+        <visual name="visual_blade2">
+        <cast_shadows>false</cast_shadows>
+        <pose>4.71 0 119 1.0472 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://wind_turbine_70m/meshes/wind_turbine_blade.dae</uri>
+          </mesh>
+        </geometry>        
+      </visual>
+        <visual name="visual_blade3">
+        <cast_shadows>false</cast_shadows>
+        <pose>4.71 0 119 -1.0472 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://wind_turbine_70m/meshes/wind_turbine_blade.dae</uri>
+          </mesh>
+        </geometry>        
+      </visual>
+      <visual name="visual_tower">
+        <cast_shadows>false</cast_shadows>
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://wind_turbine_70m/meshes/wind_turbine_tower119.dae</uri>
+          </mesh>
+        </geometry>        
+      </visual>
+        </link>
+  </model>
+</sdf>

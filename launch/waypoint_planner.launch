@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="mav_name" default="hummingbird"/>
+  <arg name="waypoint_file" default="$(find vi_rpe)/resources/waypoints.txt" />
+ 
+  <group ns="$(arg mav_name)">
+    <param name="/filename_waypoints" value="$(arg waypoint_file)"/>
+    <node name="waypoint_planner" pkg="vi_rpe" type="waypoint_planner" output="screen">
+      <remap from="reference_odometry_topic" to="ground_truth/odometry" />
+      <remap from="command/trajectory" to="command/gt_trajectory" />
+    </node>
+  </group>
+</launch>

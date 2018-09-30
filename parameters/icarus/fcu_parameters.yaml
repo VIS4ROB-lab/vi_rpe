@@ -1,0 +1,16 @@
+fcu/serial_port:            /dev/ttyUSB0
+#fcu/baudrate:               57600
+fcu/baudrate:               115200
+fcu/frame_id:               fcu
+fcu/packet_rate_imu:        100.0
+fcu/packet_rate_rc:         20.0
+fcu/packet_rate_gps:        10.0
+fcu/packet_rate_ssdk_debug: 1.0
+fcu/packet_rate_ekf_state:  10.0
+fcu/max_velocity_xy:        1
+fcu/max_velocity_z:         1
+fcu/max_velocity_yaw:       1.5
+
+fcu/state_estimation:       off
+fcu/position_control:       off
+fcu/mav_type:               hummingbird # firefly or hummingbird
