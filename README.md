@@ -9,6 +9,12 @@ This setup is especially interesting to aerial manipulation and close-up inspect
 
 Evaluation on both simulation and real indoor and outdoor experiments reveals that the proposed approach achieves unprecedented robustness to noise and occlusion, accuracy and speed of computation. All the code to reproduce this work is publicly available.
 
+Video:
+---------------
+<a href="https://www.youtube.com/embed/0auaPt5etHg" target="_blank"><img src="http://img.youtube.com/vi/0auaPt5etHg/0.jpg" 
+alt="Mesh" width="240" height="180" border="10" /></a>
+
+
 Disclaimer and License
 ---------------
 
