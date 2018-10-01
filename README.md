@@ -1,39 +1,17 @@
 
 VI-RPE: Visual-Inertial Relative Pose Estimation for Aerial Vehicles
 ======================
-
-With a large body of literature dedicated to ego-motion estimation and perception of a robot's workspace, the Robotics community has seen some impressive advances in self-localization and mapping, however, we are still far from general applicability of such approaches in real scenarios.
+This code is part of the publication **VI-RPE: Visual-Inertial Relative Pose Estimation for Aerial Vehicles - RA-L 2018**.
 Driven by the need for portable and low-cost solutions to relative pose estimation between Unmanned Aerial Vehicles (UAVs), in this work we propose a new framework to track a master UAV in real-time, carrying a known constellation of LED markers, from a slave UAV without any other pose estimation capability.
-
-This setup is especially interesting to aerial manipulation and close-up inspection of structures with low or no texture. % Our approach is able to fuse the estimated master's pose with the slave's onboard inertial readings, supporting intermittent communication between the UAVs.
-
-Evaluation on both simulation and real indoor and outdoor experiments reveals that the proposed approach achieves unprecedented robustness to noise and occlusion, accuracy and speed of computation. All the code to reproduce this work is publicly available.
+This setup is especially interesting to aerial manipulation and close-up inspection of structures with low or no texture. Our approach is able to fuse the estimated master's pose with the slave's onboard inertial readings, supporting intermittent communication between the UAVs.
 
 Video:
 ---------------
 <a href="https://www.youtube.com/embed/0auaPt5etHg" target="_blank"><img src="http://img.youtube.com/vi/0auaPt5etHg/0.jpg" 
 alt="Mesh" width="240" height="180" border="10" /></a>
 
-
-Disclaimer and License
----------------
-
-The VI-RPE has been tested under the following setups:
-
-* ROS-Indigo and Ubuntu 14.04
-
-This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
-
-The source code is released under a BSD License 2.0.
-
-
-Package Summary
----------------
-
-
-
-### Publications
-
+Publications
+----------------
 L. Teixeira and F. Maffra and M. Moos and M. Chli: 
 **VI-RPE: Visual-Inertial Relative Pose Estimation for Aerial Vehicles**
 IEEE Robotics and Automation Letters (RA-L), Spain, 2018.
@@ -49,6 +27,19 @@ IEEE Robotics and Automation Letters (RA-L), Spain, 2018.
       doi={10.1109/LRA.2018.2837687},
       month={Oct}
 }
+
+
+Disclaimer and License
+---------------
+
+The VI-RPE has been tested under the following setups:
+
+* ROS-Indigo and Ubuntu 14.04
+
+This is research code, expect that it changes often and any fitness for a particular purpose is disclaimed.
+
+The source code is released under a BSD License 2.0.
+
 
 Installation
 ------
