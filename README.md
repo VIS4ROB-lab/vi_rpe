@@ -65,6 +65,7 @@ Installation
   $ git clone git@github.com:ethz-asl/eigen_catkin.git
   $ git clone git@github.com:ethz-asl/minkindr.git
   $ git clone git@github.com:ethz-asl/minkindr_ros.git
+  $ git clone git@github.com:ethz-asl/ethzasl_msf.git  
 
   $ git clone git@github.com:VIS4ROB-lab/pf_monocular_pose_estimator.git
   $ git clone git@github.com:VIS4ROB-lab/visensor_simulator.git
